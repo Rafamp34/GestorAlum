@@ -1,18 +1,21 @@
-import {Materia} from '../Materias/materia';
+import { IAlumno } from "../Interfaces/IAlumno";
 
-class Alumno extends Materia{
-    private idAlu: number;
-    nameAlu: string;
-    surname: string;
-    age: number;
-  
-    constructor(idAlu: number, idAsig: number, nameAsig: string, nameAlu: string, surname: string,  age: number) {
-        super(idAsig, nameAsig);
-      this.idAlu = idAlu;
-      this.nameAlu = nameAlu;
-      this.surname= surname;
-      this.age = age;
+export class Alumno implements  IAlumno{
+    private id: number;
+    private nombreAlum: string;
+    private apellidoAlum: string;
+
+    constructor(id: number, nombreAlum: string, apellidoAlum: string) {
+        this.id = id;
+        this.nombreAlum = nombreAlum;
+        this.apellidoAlum = apellidoAlum;
     }
 
-    
-  }
+    public getId(): number {
+        return this.id;
+    }
+
+    public getNombreCompleto(): string {
+        return `${this.nombreAlum} ${this.apellidoAlum}`;
+    }
+}

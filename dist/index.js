@@ -1,18 +1,38 @@
-import * as readline from 'readline';
-import { Alumno } from "./Alumnos/alumno";
-import { Materia } from "./Materias/materia";
-import { MateriaManager } from "./Materias/materiaManager";
-
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const readline = __importStar(require("readline"));
+const alumno_1 = require("./Alumnos/alumno");
+const materiaManager_1 = require("./Materias/materiaManager");
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
-const materiaManager = new MateriaManager();
-
-materiaManager.agregarAlumno(new Alumno(1, 'Juan', 'Pérez'));
-materiaManager.agregarAlumno(new Alumno(2, 'Ana', 'García'));
-
+const materiaManager = new materiaManager_1.MateriaManager();
+materiaManager.agregarAlumno(new alumno_1.Alumno(1, 'Juan', 'Pérez'));
+materiaManager.agregarAlumno(new alumno_1.Alumno(2, 'Ana', 'García'));
 function showMenu() {
     console.log("\n--- Menú del Gestor de Alumnos ---");
     console.log("1. Crear Materia");
@@ -24,8 +44,7 @@ function showMenu() {
     console.log("7. Salir");
     rl.question("Seleccione una opción: ", handleMenuSelection);
 }
-
-function handleMenuSelection(option: string) {
+function handleMenuSelection(option) {
     switch (option) {
         case '1':
             crearMateria();
@@ -54,30 +73,23 @@ function handleMenuSelection(option: string) {
             break;
     }
 }
-
 showMenu();
-
 function crearMateria() {
     throw new Error('Function not implemented.');
 }
-
 function inscribirAlumnoEnMateria() {
     throw new Error('Function not implemented.');
 }
-
 function darBajaAlumnoDeMateria() {
     throw new Error('Function not implemented.');
 }
-
 function asignarNotaAAlumno() {
     throw new Error('Function not implemented.');
 }
-
 function mostrarInformacionMateria() {
     throw new Error('Function not implemented.');
 }
-
 function mostrarInformacionAlumnos() {
     throw new Error('Function not implemented.');
 }
-
+//# sourceMappingURL=index.js.map
