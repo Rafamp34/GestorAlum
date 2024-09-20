@@ -1,12 +1,7 @@
-import * as readline from 'readline';
+import * as readline from 'readline-sync';
 import { Alumno } from "./Alumnos/alumno";
 import { Materia } from "./Materias/materia";
 import { MateriaManager } from "./Materias/materiaManager";
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 const materiaManager = new MateriaManager();
 
@@ -22,7 +17,8 @@ function showMenu() {
     console.log("5. Mostrar Información de Materia");
     console.log("6. Mostrar Información de Alumnos");
     console.log("7. Salir");
-    rl.question("Seleccione una opción: ", handleMenuSelection);
+    const opcion = readline.question('Por favor, elige una opción: ');
+    handleMenuSelection(opcion)
 }
 
 function handleMenuSelection(option: string) {
@@ -46,7 +42,6 @@ function handleMenuSelection(option: string) {
             mostrarInformacionAlumnos();
             break;
         case '7':
-            rl.close();
             break;
         default:
             console.log("Opción no válida.");
