@@ -16,7 +16,7 @@ export class alumnoManager implements IAlumnoManager{
 
     borrarAlumno(alumno: Alumno): void{
         this.alumnos.filter(alumno => alumno === alumno);
-        this.alumnos.re
+        this.alumnos.
     }
     
     getAlumnos(): Alumno[] {
