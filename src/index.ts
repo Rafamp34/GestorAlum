@@ -8,7 +8,7 @@ const materiaManager = new MateriaManager();
 materiaManager.agregarAlumno(new Alumno(1, 'Juan', 'Pérez'));
 materiaManager.agregarAlumno(new Alumno(2, 'Ana', 'García'));
 materiaManager.crearMateria(1, 'Matemáticas');
-materiaManager.crearMateria(2, 'Lengua');
+materiaManager.crearMateria(2, 'Lengua') ;
 
 function showMenu() {
     console.log("\n--- Menú del Gestor de Alumnos ---");
