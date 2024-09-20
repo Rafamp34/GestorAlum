@@ -21,7 +21,7 @@ function showMenu() {
     console.log("7. Salir");
     const opcion = readline.question('Por favor, elige una opción: ');
     Menu(opcion)
-+}
+}
 
 function Menu(option: string) {
     switch (option) {
