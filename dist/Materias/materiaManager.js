@@ -1,28 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MateriaManager = void 0;
+const materia_1 = require("./materia");
 class MateriaManager {
     constructor() {
         this.alumnos = [];
         this.materias = new Map();
     }
     agregarAlumno(alumno) {
-        throw new Error("Method not implemented.");
-    }
-    obtenerAlumnos() {
-        throw new Error("Method not implemented.");
+        this.alumnos.push(alumno);
     }
     crearMateria(id, nombreAsig) {
-        throw new Error("Method not implemented.");
+        this.materias.set(id, new materia_1.Materia(id, nombreAsig));
     }
-    inscribirAlumnoEnMateria(materiaId, alumno) {
-        throw new Error("Method not implemented.");
+    getAlumnos() {
+        return this.alumnos;
     }
-    darBajaAlumnoDeMateria(materiaId, alumnoId) {
-        throw new Error("Method not implemented.");
-    }
-    obtenerMateria(materiaId) {
-        throw new Error("Method not implemented.");
+    getMateria() {
+        return Array.from(this.materias.values());
     }
 }
 exports.MateriaManager = MateriaManager;

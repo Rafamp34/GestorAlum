@@ -8,6 +8,18 @@ class Materia {
         this.alumnos = new Map();
         this.notas = new Map();
     }
+    getId() {
+        return this.id;
+    }
+    getNombreAsig() {
+        return this.nombreAsig;
+    }
+    getAlumnos() {
+        return this.alumnos;
+    }
+    getNotas() {
+        return this.notas;
+    }
     inscribirAlumno(alumno) {
         throw new Error("Method not implemented.");
     }
@@ -18,9 +30,6 @@ class Materia {
         throw new Error("Method not implemented.");
     }
     obtenerNotas() {
-        throw new Error("Method not implemented.");
-    }
-    getInfo() {
         throw new Error("Method not implemented.");
     }
 }

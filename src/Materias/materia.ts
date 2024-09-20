@@ -7,29 +7,23 @@ export class Materia implements IMateria {
     private id: number;
     private nombreAsig: string;
     private alumnos: Map<number, Alumno>;
-    private notas: Map<number, number>;
 
     constructor(id: number, nombreAsig: string) {
         this.id = id;
         this.nombreAsig = nombreAsig;
         this.alumnos = new Map<number, Alumno>();
-        this.notas = new Map<number, number>();
     }
 
-    inscribirAlumno(alumno: IAlumno): void {
-        throw new Error("Method not implemented.");
+    public getId(): number {
+        return this.id;
     }
-    darBajaAlumno(alumnoId: number): void {
-        throw new Error("Method not implemented.");
+
+    getNombreAsig(): string {
+        return this.nombreAsig;
     }
-    asignarNota(alumnoId: number, nota: number): void {
-        throw new Error("Method not implemented.");
-    }
-    obtenerNotas(): Map<IAlumno, number> {
-        throw new Error("Method not implemented.");
-    }
-    getInfo(): string {
-        throw new Error("Method not implemented.");
+
+    getAlumnos(): Map<number, Alumno> {
+        return this.alumnos;
     }
 }
 

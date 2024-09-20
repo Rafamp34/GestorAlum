@@ -10,6 +10,12 @@ class Alumno {
     getId() {
         return this.id;
     }
+    getNombre() {
+        return this.nombreAlum;
+    }
+    getApellido() {
+        return this.apellidoAlum;
+    }
     getNombreCompleto() {
         return `${this.nombreAlum} ${this.apellidoAlum}`;
     }

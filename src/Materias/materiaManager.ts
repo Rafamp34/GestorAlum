@@ -11,24 +11,19 @@ export class MateriaManager implements IMateriaManager{
     constructor() {
         this.materias = new Map<number, Materia>();
     }
-
-    agregarAlumno(alumno: IAlumno): void {
-        throw new Error("Method not implemented.");
-    }
-    obtenerAlumnos(): IAlumno[] {
-        throw new Error("Method not implemented.");
+    agregarAlumno(alumno: Alumno): void {
+        this.alumnos.push(alumno);
     }
     crearMateria(id: number, nombreAsig: string): void {
-        throw new Error("Method not implemented.");
+        this.materias.set(id, new Materia(id, nombreAsig));
     }
-    inscribirAlumnoEnMateria(materiaId: number, alumno: IAlumno): void {
-        throw new Error("Method not implemented.");
+    
+    getAlumnos(): Alumno[] {
+        return this.alumnos;
     }
-    darBajaAlumnoDeMateria(materiaId: number, alumnoId: number): void {
-        throw new Error("Method not implemented.");
-    }
-    obtenerMateria(materiaId: number): IMateria | undefined {
-        throw new Error("Method not implemented.");
+
+    getMateria(): Materia[] {
+        return Array.from(this.materias.values());
     }
 
     

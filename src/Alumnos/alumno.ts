@@ -15,6 +15,14 @@ export class Alumno implements  IAlumno{
         return this.id;
     }
 
+    getNombre(): string {   
+        return this.nombreAlum;
+    }
+
+    getApellido(): string {
+        return this.apellidoAlum    
+    }
+
     public getNombreCompleto(): string {
         return `${this.nombreAlum} ${this.apellidoAlum}`;
     }

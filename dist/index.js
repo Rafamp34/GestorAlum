@@ -29,6 +29,8 @@ const materiaManager_1 = require("./Materias/materiaManager");
 const materiaManager = new materiaManager_1.MateriaManager();
 materiaManager.agregarAlumno(new alumno_1.Alumno(1, 'Juan', 'Pérez'));
 materiaManager.agregarAlumno(new alumno_1.Alumno(2, 'Ana', 'García'));
+materiaManager.crearMateria(1, 'Matemáticas');
+materiaManager.crearMateria(2, 'Lengua');
 function showMenu() {
     console.log("\n--- Menú del Gestor de Alumnos ---");
     console.log("1. Crear Materia");
@@ -39,9 +41,9 @@ function showMenu() {
     console.log("6. Mostrar Información de Alumnos");
     console.log("7. Salir");
     const opcion = readline.question('Por favor, elige una opción: ');
-    handleMenuSelection(opcion);
+    Menu(opcion);
 }
-function handleMenuSelection(option) {
+function Menu(option) {
     switch (option) {
         case '1':
             crearMateria();
@@ -83,9 +85,17 @@ function asignarNotaAAlumno() {
     throw new Error('Function not implemented.');
 }
 function mostrarInformacionMateria() {
-    throw new Error('Function not implemented.');
+    console.log("\n--- Información de Materia ---");
+    materiaManager.getMateria().forEach((materia) => {
+        console.log(`ID: ${materia.getId()}, Nombre Asignatura: ${materia.getNombreAsig()}`);
+    });
+    showMenu();
 }
 function mostrarInformacionAlumnos() {
-    throw new Error('Function not implemented.');
+    console.log("\n--- Información de Alumnos ---");
+    materiaManager.getAlumnos().forEach((alumno) => {
+        console.log(`ID: ${alumno.getId()}, Nombre Completo: ${alumno.getNombre()} ${alumno.getApellido()}`);
+    });
+    showMenu();
 }
 //# sourceMappingURL=index.js.map
