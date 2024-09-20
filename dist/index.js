@@ -23,13 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const readline = __importStar(require("readline"));
+const readline = __importStar(require("readline-sync"));
 const alumno_1 = require("./Alumnos/alumno");
 const materiaManager_1 = require("./Materias/materiaManager");
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 const materiaManager = new materiaManager_1.MateriaManager();
 materiaManager.agregarAlumno(new alumno_1.Alumno(1, 'Juan', 'Pérez'));
 materiaManager.agregarAlumno(new alumno_1.Alumno(2, 'Ana', 'García'));
@@ -42,7 +38,8 @@ function showMenu() {
     console.log("5. Mostrar Información de Materia");
     console.log("6. Mostrar Información de Alumnos");
     console.log("7. Salir");
-    rl.question("Seleccione una opción: ", handleMenuSelection);
+    const opcion = readline.question('Por favor, elige una opción: ');
+    handleMenuSelection(opcion);
 }
 function handleMenuSelection(option) {
     switch (option) {
@@ -65,7 +62,6 @@ function handleMenuSelection(option) {
             mostrarInformacionAlumnos();
             break;
         case '7':
-            rl.close();
             break;
         default:
             console.log("Opción no válida.");
