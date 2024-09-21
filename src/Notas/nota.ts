@@ -7,14 +7,29 @@ export class Nota implements INota{
     private nota: number;
     private idAlumnos: number;
     private idMateria: number;
-    private alumno: Alumno[] = [];
-    private materia: Materia[] = [];
 
-    constructor(idNota: number, nota: number, idAlumnos: Alumno, idMateria: number) {
-        this.idNota= idNota;
-        this.nota= nota;
-        this.idAlumnos= idAlumnos.getId();
-        this.idMateria= idMateria.getId();
+    private static currentId: number = 0;
+
+    constructor(nota: number, idAlumnos: number, idMateria: number) {
+        this.idNota = Nota.currentId++;
+        this.nota = nota;
+        this.idAlumnos = idAlumnos;
+        this.idMateria = idMateria;
     }
 
+    getIdNota(): number {
+        return this.idNota;
+    }
+
+    getNota(): number {
+        return this.nota;
+    }
+
+    getIdAlumnos(): number {
+        return this.idAlumnos;
+    }
+
+    getIdMateria(): number {
+        return this.idMateria
+    }
 }

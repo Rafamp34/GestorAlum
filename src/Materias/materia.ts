@@ -2,20 +2,20 @@ import { Alumno } from "../Alumnos/alumno";
 import { IAlumno } from "../Interfaces/IAlumno";
 import { IMateria } from "../Interfaces/IMateria";
 
-
 export class Materia implements IMateria {
-    private id: number;
+    private static nextId: number = 1;
+    private idMateria: number;
     private nombreAsig: string;
     private alumnos: Map<number, Alumno>;
 
-    constructor(id: number, nombreAsig: string) {
-        this.id = id;
+    constructor(nombreAsig: string) {
+        this.idMateria = Materia.nextId++;
         this.nombreAsig = nombreAsig;
         this.alumnos = new Map<number, Alumno>();
     }
 
-    public getId(): number {
-        return this.id;
+    public getIdMateria(): number {
+        return this.idMateria;
     }
 
     getNombreAsig(): string {
@@ -26,7 +26,6 @@ export class Materia implements IMateria {
         return this.alumnos;
     }
 }
-
 
 
 

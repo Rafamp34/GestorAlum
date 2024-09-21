@@ -2,14 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Materia = void 0;
 class Materia {
-    constructor(id, nombreAsig) {
-        this.id = id;
+    constructor(nombreAsig) {
+        this.idMateria = Materia.nextId++;
         this.nombreAsig = nombreAsig;
         this.alumnos = new Map();
-        this.notas = new Map();
     }
-    getId() {
-        return this.id;
+    getIdMateria() {
+        return this.idMateria;
     }
     getNombreAsig() {
         return this.nombreAsig;
@@ -17,21 +16,7 @@ class Materia {
     getAlumnos() {
         return this.alumnos;
     }
-    getNotas() {
-        return this.notas;
-    }
-    inscribirAlumno(alumno) {
-        throw new Error("Method not implemented.");
-    }
-    darBajaAlumno(alumnoId) {
-        throw new Error("Method not implemented.");
-    }
-    asignarNota(alumnoId, nota) {
-        throw new Error("Method not implemented.");
-    }
-    obtenerNotas() {
-        throw new Error("Method not implemented.");
-    }
 }
 exports.Materia = Materia;
+Materia.nextId = 1;
 //# sourceMappingURL=materia.js.map

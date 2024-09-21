@@ -1,7 +1,8 @@
-import { IAlumno } from "../Interfaces/IAlumno";
-import { IMateria } from "../Interfaces/IMateria";
+import { Materia } from "../Materias/materia";
 
 export interface IMateriaManager {
-    agregarAlumno(alumno: IAlumno): void;
-    crearMateria(id: number, nombreAsig: string): void;
+    crearMateria(nombreAsig: string): void;
+    borrarMateria(id: number): void;
+    getMateria(): Materia[];
+    getMateriaById(id: number): Materia;
 }

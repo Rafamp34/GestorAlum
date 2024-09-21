@@ -1,4 +1,7 @@
 export interface IAlumno {
-    getId(): number;
+    getIdAlumno(): number;
+    getNombre(): string;
+    getApellido(): string;
+    getCurso(): string;
     getNombreCompleto(): string;
 }

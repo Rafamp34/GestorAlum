@@ -1,6 +1,4 @@
 import { Alumno } from "../Alumnos/alumno";
-import { IAlumno } from "../Interfaces/IAlumno";
-import { IMateria } from "../Interfaces/IMateria";
 import { IMateriaManager } from "../Interfaces/IMateriaManager";
 import { Materia } from "./materia";
 
@@ -11,22 +9,27 @@ export class MateriaManager implements IMateriaManager{
     constructor() {
         this.materias = new Map<number, Materia>();
     }
-    agregarAlumno(alumno: Alumno): void {
-        this.alumnos.push(alumno);
-    }
-    crearMateria(id: number, nombreAsig: string): void {
-        this.materias.set(id, new Materia(id, nombreAsig));
+
+    crearMateria(nombreAsig: string): void {
+        const id = this.materias.size + 1;
+        this.materias.set(id, new Materia(nombreAsig));
     }
     
-    getAlumnos(): Alumno[] {
-        return this.alumnos;
+    borrarMateria(id: number): void{
+        this.materias.delete(id);
     }
 
     getMateria(): Materia[] {
         return Array.from(this.materias.values());
     }
 
-    
+    getMateriaById(id: number): Materia {
+        const materia = this.materias.get(id);
+        if (!materia) {
+            throw new Error(`Materia with id ${id} not found`);
+        }
+        return materia;
+    }
 }
 
 

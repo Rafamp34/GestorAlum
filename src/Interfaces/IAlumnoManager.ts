@@ -1,6 +1,8 @@
-import { IAlumno } from "../Interfaces/IAlumno";
-import { IMateria } from "../Interfaces/IMateria";
+import { Alumno } from "../Alumnos/alumno";
 
 export interface IAlumnoManager {
-    agregarAlumno(alumno: IAlumno): void;
+    agregarAlumno(alumno: Alumno): void;
+    borrarAlumno(id: number): void;
+    getAlumnos(): Alumno[];
+    getAlumnoById(id: number): Alumno;
 }

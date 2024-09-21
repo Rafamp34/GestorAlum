@@ -1,26 +1,33 @@
 import { IAlumno } from "../Interfaces/IAlumno";
 
-export class Alumno implements  IAlumno{
-    private id: number;
+export class Alumno implements IAlumno {
+    private static currentId: number = 0;
+    private idAlumno: number;
     private nombreAlum: string;
     private apellidoAlum: string;
+    private curso: string;
 
-    constructor(id: number, nombreAlum: string, apellidoAlum: string) {
-        this.id = id;
+    constructor(nombreAlum: string, apellidoAlum: string, curso: string) {
+        this.idAlumno = ++Alumno.currentId;
         this.nombreAlum = nombreAlum;
         this.apellidoAlum = apellidoAlum;
+        this.curso = curso;
     }
 
-    public getId(): number {
-        return this.id;
+    public getIdAlumno(): number {
+        return this.idAlumno;
     }
 
-    getNombre(): string {   
+    public getNombre(): string {
         return this.nombreAlum;
     }
 
-    getApellido(): string {
-        return this.apellidoAlum    
+    public getApellido(): string {
+        return this.apellidoAlum;
+    }
+
+    public getCurso(): string {
+        return this.curso;
     }
 
     public getNombreCompleto(): string {
