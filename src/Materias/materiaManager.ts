@@ -1,10 +1,8 @@
-import { Alumno } from "../Alumnos/alumno";
 import { IMateriaManager } from "../Interfaces/IMateriaManager";
 import { Materia } from "./materia";
 
 export class MateriaManager implements IMateriaManager{
     private materias: Materia[] = [];
-    private alumnos: Alumno[] = [];
 
     constructor() {
         this.materias = [];
