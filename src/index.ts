@@ -11,8 +11,8 @@ const notaManager = new NotaManager();
 
 alumnoManager.agregarAlumno(new Alumno('Juan', 'Pérez', '1ºA'));
 alumnoManager.agregarAlumno(new Alumno('Ana', 'García', '2ºA'));
-materiaManager.crearMateria('Matemáticas');
-materiaManager.crearMateria('Lengua') ;
+materiaManager.crearMateria(new Materia('Matemáticas'));
+materiaManager.crearMateria(new Materia('Lengua')) ;
 notaManager.agregarNota(8, 1, 1);
 notaManager.agregarNota(7, 2, 1);
 
@@ -32,10 +32,11 @@ function showMenu() {
     Menu(opcion)
 }
 
+
 function Menu(option: string) {
     switch (option) {
         case '1':
-            materiaManager.crearMateria(readline.question('Nombre de la materia: '));
+            materiaManager.crearMateria(new Materia(readline.question('Nombre de la materia: ')));
             showMenu();
             break;
         case '2':

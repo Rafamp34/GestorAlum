@@ -3,28 +3,27 @@ import { IMateriaManager } from "../Interfaces/IMateriaManager";
 import { Materia } from "./materia";
 
 export class MateriaManager implements IMateriaManager{
-    private materias: Map<number, Materia>;
+    private materias: Materia[] = [];
     private alumnos: Alumno[] = [];
 
     constructor() {
-        this.materias = new Map<number, Materia>();
+        this.materias = [];
     }
 
-    crearMateria(nombreAsig: string): void {
-        const id = this.materias.size + 1;
-        this.materias.set(id, new Materia(nombreAsig));
+    crearMateria(materia: Materia): void {
+        this.materias.push(materia);
     }
-    
+
     borrarMateria(id: number): void{
-        this.materias.delete(id);
+        this.materias = this.materias.filter(materias => materias.getIdMateria() !== id);
     }
 
     getMateria(): Materia[] {
-        return Array.from(this.materias.values());
+        return this.materias;
     }
 
     getMateriaById(id: number): Materia {
-        const materia = this.materias.get(id);
+        const materia = this.materias.find(materias => materias.getIdMateria() === id);
         if (!materia) {
             throw new Error(`Materia with id ${id} not found`);
         }

@@ -1,24 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MateriaManager = void 0;
-const materia_1 = require("./materia");
 class MateriaManager {
     constructor() {
+        this.materias = [];
         this.alumnos = [];
-        this.materias = new Map();
+        this.materias = [];
     }
-    crearMateria(nombreAsig) {
-        const id = this.materias.size + 1;
-        this.materias.set(id, new materia_1.Materia(nombreAsig));
+    crearMateria(materia) {
+        this.materias.push(materia);
     }
     borrarMateria(id) {
-        this.materias.delete(id);
+        this.materias = this.materias.filter(materias => materias.getIdMateria() !== id);
     }
     getMateria() {
-        return Array.from(this.materias.values());
+        return this.materias;
     }
     getMateriaById(id) {
-        const materia = this.materias.get(id);
+        const materia = this.materias.find(materias => materias.getIdMateria() === id);
         if (!materia) {
             throw new Error(`Materia with id ${id} not found`);
         }

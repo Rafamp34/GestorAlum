@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const readline = __importStar(require("readline-sync"));
 const alumno_1 = require("./Alumnos/alumno");
+const materia_1 = require("./Materias/materia");
 const materiaManager_1 = require("./Materias/materiaManager");
 const alumnoManager_1 = require("./Alumnos/alumnoManager");
 const notaManager_1 = require("./Notas/notaManager");
@@ -33,8 +34,8 @@ const alumnoManager = new alumnoManager_1.AlumnoManager();
 const notaManager = new notaManager_1.NotaManager();
 alumnoManager.agregarAlumno(new alumno_1.Alumno('Juan', 'Pérez', '1ºA'));
 alumnoManager.agregarAlumno(new alumno_1.Alumno('Ana', 'García', '2ºA'));
-materiaManager.crearMateria('Matemáticas');
-materiaManager.crearMateria('Lengua');
+materiaManager.crearMateria(new materia_1.Materia('Matemáticas'));
+materiaManager.crearMateria(new materia_1.Materia('Lengua'));
 notaManager.agregarNota(8, 1, 1);
 notaManager.agregarNota(7, 2, 1);
 function showMenu() {
@@ -55,7 +56,7 @@ function showMenu() {
 function Menu(option) {
     switch (option) {
         case '1':
-            materiaManager.crearMateria(readline.question('Nombre de la materia: '));
+            materiaManager.crearMateria(new materia_1.Materia(readline.question('Nombre de la materia: ')));
             showMenu();
             break;
         case '2':
